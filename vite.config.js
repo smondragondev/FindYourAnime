@@ -8,6 +8,6 @@ export default defineConfig({
     emptyOutDir: true,
   },
   root: "src/",
-  base: "/find-your-anime/",
+  base: "/FindYourAnime/",
   plugins: [tailwindcss()],
 });
