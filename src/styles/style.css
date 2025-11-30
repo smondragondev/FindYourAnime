@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background-color: #FDFFFC;
-  --primary-color: #FF9F1C;
-  --secondary-color: #2EC4B6;
+  --background-color: #fdfffc;
+  --primary-color: #ff9f1c;
+  --secondary-color: #2ec4b6;
   --typeface-color: #011627;
-  --accent-color: #E71D36;
+  --accent-color: #e71d36;
 }
 
 @theme {
@@ -16,7 +16,6 @@
   --font-sans: "Noto Sans", sans-serif;
   --font-serif: "Noto Serif", serif;
 }
-
 
 body {
   min-width: 100vw;

@@ -3,9 +3,11 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    outDir: "../dist",
+    emptyOutDir: true,
+  },
   root: "src/",
   base: "/find-your-anime/",
-  plugins: [
-    tailwindcss(),
-  ],
+  plugins: [tailwindcss()],
 });
