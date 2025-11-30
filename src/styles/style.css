@@ -11,8 +11,17 @@
 @theme {
   --color-background: var(--background-color);
   --color-primary: var(--primary-color);
+  --color-primary-300: #d07900;
+  --color-primary-500: #a35400;
+  --color-primary-700: #793100;
+  --color-primary-900: #540b00;
   --color-secondary: var(--secondary-color);
+  --color-secondary-300: #009c90;
+  --color-secondary-500: #00766b;
+  --color-secondary-700: #005249;
+  --color-secondary-900: #003029;
   --color-typeface: var(--typeface-color);
+  --color-accent: var(--accent-color);
   --font-sans: "Noto Sans", sans-serif;
   --font-serif: "Noto Serif", serif;
 }
