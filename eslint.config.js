@@ -40,6 +40,7 @@ export default [
       "comma-dangle": 0,
       "max-len": 0,
       "import/extensions": 0,
+      "import/no-unresolved": 0,
       "no-underscore-dangle": 0,
       "consistent-return": 0,
       radix: 0,
