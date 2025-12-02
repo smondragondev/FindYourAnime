@@ -1,5 +1,3 @@
-import { PROJECT_NAME } from "./constants.mjs";
-
 export async function loadTemplate(path) {
   const res = await fetch(path);
   const template = await res.text();
@@ -38,5 +36,19 @@ export async function loadHeaderFooter(callback) {
   const footerTemplate = await loadTemplate("./partials/footer.html");
   renderWithTemplate(headerTemplate, header, "", callback);
   renderWithTemplate(footerTemplate, footer);
+  getLastModification();
   addWayFinding();
+}
+
+export function getLastModification() {
+  const currentYearSpan = document.querySelector("#currentYear");
+  const lastModifiedParagraph = document.querySelector("#lastModified");
+  // Set the current year
+  const currentYear = new Date().getFullYear();
+  currentYearSpan.textContent = currentYear;
+
+  // Last modified
+  const lastModified = document.lastModified;
+  lastModifiedParagraph.textContent = `Last Modification: ${lastModified}`;
+
 }
