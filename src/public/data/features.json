@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Smart Anime Search",
+    "description": "Search thousands of anime by title, year, rating, episode count, and more using data from the Kitsu API.",
+    "icon": "images/search.svg"
+  },
+  {
+    "title": "Personalized Suggestions",
+    "description": "Get anime recommendations based on your preferences and browsing behavior to quickly find your next watch.",
+    "icon": "images/star.svg"
+  },
+  {
+    "title": "Characters & Voice Actors",
+    "description": "View detailed character profiles, images, and voice actor information for any anime.",
+    "icon": "images/users.svg"
+  },
+  {
+    "title": "Episodes & Quotes",
+    "description": "Explore full episode lists, in-depth episode details, and memorable quotes from your favorite characters.",
+    "icon": "images/message.svg"
+  }
+]
