@@ -58,7 +58,12 @@ export function addWayFinding(parentSelector) {
   navOptions.forEach(
     (option) => {
       const currentPath = getCurrentPath();
-      if (option.pathname === currentPath || option.pathname === "/index.html") {
+      if (currentPath === "/FindYourAnime/" && option.pathname === "/index.html"){
+        option.classList.add("text-primary-900");
+        option.classList.add("border-t-3");
+        return
+      }
+      if (option.pathname === currentPath) {
         option.classList.add("text-primary-900");
         option.classList.add("border-t-3");
       }
@@ -69,8 +74,8 @@ export function addWayFinding(parentSelector) {
 export async function loadHeaderFooter(callback) {
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
-  const headerTemplate = await loadTemplate("./partials/header.html");
-  const footerTemplate = await loadTemplate("./partials/footer.html");
+  const headerTemplate = await loadTemplate("/FindYourAnime/partials/header.html");
+  const footerTemplate = await loadTemplate("/FindYourAnime/partials/footer.html");
   renderWithTemplate(headerTemplate, header, "", callback);
   renderWithTemplate(footerTemplate, footer);
   getLastModification();
