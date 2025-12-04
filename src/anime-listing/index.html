@@ -16,72 +16,48 @@
   </head>
   <body class="bg-background absolute">
     <header></header>
-    <main class="px-10 py-10">
-      <h1>Animes</h1>
-      <div>
-          <span></span>
-          <input type="text" placeholder="Find your anime">
+    <main class="px-10 py-10">      
+      <h1 class="text-3xl sm:text-5xl lg:text-7xl">Animes</h1>
+      <div class="h-24 mb-4">
+        <div class="absolute w-[300px]">
+            <span class="relative top-11 left-3">
+              <img src="/images/search.svg" alt="Search Icon" width="24">
+            </span>
+            <input name="search" type="text" class="border border-primary-500 rounded-2xl px-10 py-5 w-full" placeholder="Find your anime">
+        </div>
       </div>
-      <section class="text-center py-20">
-        <h2 class="text-2xl text-secondary-900 font-bold mb-4 sm:mb-2">FEATURED ANIME</h2>
-        <p class="text-4xl mb-4">Explore Top Anime Recommendations Chosen for You</p>
-        <div id="fetured-anime" class="grid grid-cols-1 gap-4 py-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          <div class="flex flex-col text-start justify-center items-center gap-4 border-2 border-secondary-500 pb-8">
-              <img src="https://placehold.co/600" alt=""  class="w-full h-full object-cover" loading="lazy">
-              <div class="flex flex-col gap-4 px-8">
-                <div class="self-start">
-                  <h2>Category</h2>
-                  <p class="font-bold text-2xl">Title</p>
-                </div>
-                <p>Lorem ipsum domunde similique sit eveniet suscipit laboriosam. Deserunt?</p>
-                <div class="border flex gap-8 px-5 py-5 w-full">
-                  <img src="https://placehold.co/60" alt="" width="48">
-                  <div>
-                    <p class="text-3xl">11K+</p>
-                    <p class="text-typeface">Rating</p>
-                  </div>
-                </div>
-              </div>
-              <button class="bg-secondary text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary-900 hover:text-background cursor-pointer">
-                View Details
-              </button>          
-          </div>
-          <div class="flex flex-col text-start justify-center items-center gap-4 border-2 border-secondary-500 pb-8">
-              <img src="https://placehold.co/600" alt="" width="500" class="w-full h-full object-cover" loading="lazy">
-              <div class="flex flex-col gap-4 px-8">
-                <div class="self-start">
-                  <h2>Category</h2>
-                  <p class="font-bold text-2xl">Title</p>
-                </div>
-                <p>Lorem ipsum domunde similique sit eveniet suscipit laboriosam. Deserunt?</p>
-                <div class="border flex gap-8 px-5 py-5 w-full">
-                  <img src="https://placehold.co/60" alt="" width="48">
-                  <div>
-                    <p class="text-3xl">11K+</p>
-                    <p class="text-typeface">Rating</p>
-                  </div>
-                </div>
-              </div>
-              <button class="bg-secondary text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary-900 hover:text-background cursor-pointer">Primary Action</button>          
-          </div>
-          <div class="flex flex-col text-start justify-center items-center gap-4 border-2 border-secondary-500 pb-8">
-              <img src="https://placehold.co/600" alt="" width="500" class="w-full h-full object-cover" loading="lazy">
-              <div class="flex flex-col gap-4 px-8">
-                <div class="self-start">
-                  <h2>Category</h2>
-                  <p class="font-bold text-2xl">Title</p>
-                </div>
-                <p>Lorem ipsum domunde similique sit eveniet suscipit laboriosam. Deserunt?</p>
-                <div class="border flex gap-8 px-5 py-5 w-full">
-                  <img src="https://placehold.co/60" alt="" width="48">
-                  <div>
-                    <p class="text-3xl">11K+</p>
-                    <p class="text-typeface">Rating</p>
-                  </div>
-                </div>
-              </div>
-              <button class="bg-secondary text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary-900 hover:text-background cursor-pointer">Primary Action</button>          
-          </div>
+      <div class="flex flex-col gap-4">
+        <h2 class="text-xl sm:text-3xl lg:text-5xl">Filters</h2>
+        <select 
+          class="border border-primary-500 rounded-xl px-2 py-5 w-full"
+          name="" id="">
+            <option value="">Select one</option>
+            <option value="option-1">Option 1</option>
+            <option value="option-2">Option 2</option>
+            <option value="option-3">Option 3</option>
+            <option value="option-4">Option 4</option>
+        </select>
+        <select 
+          class="border border-primary-500 rounded-xl px-2 py-5 w-full"
+          name="" id="">
+            <option value="">Select one</option>
+            <option value="option-1">Option 1</option>
+            <option value="option-2">Option 2</option>
+            <option value="option-3">Option 3</option>
+            <option value="option-4">Option 4</option>
+        </select>
+        <select 
+          class="border border-primary-500 rounded-xl px-2 py-5 w-full"
+          name="" id="">
+            <option value="">Select one</option>
+            <option value="option-1">Option 1</option>
+            <option value="option-2">Option 2</option>
+            <option value="option-3">Option 3</option>
+            <option value="option-4">Option 4</option>
+        </select>
+      </div>
+      <section class="text-center pt-0 py-20 mt-8">        
+        <div id="filtered-anime" class="grid grid-cols-1 gap-4 py-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         </div>     
       </section>
     </main>
