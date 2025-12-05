@@ -12,9 +12,14 @@ function convertToJson(res) {
 
 export default class AnimeData {
 
-    async getData() {
-        const url = `${baseURL}/anime?page[size]=12&filter[ageRating]=G,PG`;
-        const response = await fetch(url);
+    async getData({pageNumber = 1, pageSize = 12,sort = "popularityRank", url = ""} = {}) {
+        let formattedUrl = "";
+        if (url != ""){
+            formattedUrl = url;
+        }else{
+            formattedUrl = `${baseURL}/anime?page[size]=${pageSize}&page[number]=${pageNumber}&filter[ageRating]=G,PG&sort=${sort}`;
+        }
+        const response = await fetch(formattedUrl);
         const data = await convertToJson(response);
         return data.data;
     }

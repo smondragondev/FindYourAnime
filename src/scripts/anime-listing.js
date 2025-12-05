@@ -6,4 +6,5 @@ await loadHeaderFooter();
 const filteredAnime = document.querySelector("#filtered-anime");
 const animeData = new AnimeData();
 const animeList = new AnimeList(filteredAnime,animeData);
-animeList.init();
+// animeList.renderFilteredList();
+animeList.setupInfiniteScroll();
