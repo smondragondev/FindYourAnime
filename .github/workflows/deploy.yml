@@ -38,6 +38,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+            VITE_KITSU_SERVER_URL: ${{ secrets.VITE_KITSU_SERVER_URL }}
         run: npm run build
 
       - name: Setup Pages
