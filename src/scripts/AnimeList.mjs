@@ -6,8 +6,8 @@ function animeCardTemplate(animeItem){
         <img src="${animeItem.attributes.posterImage.large}" alt=""  class="w-full h-120 object-cover" loading="lazy">
         <div class="flex flex-col gap-4 h-full w-full px-4">
           <div class="self-start">
-            <h2>${animeItem.attributes.ageRating}</h2>
-            <p class="font-bold text-2xl h-[60px]">${animeItem.attributes.titles.en ?? animeItem.attributes.titles.en_jp}</p>
+            <h2>${animeItem.attributes.ageRating} - ${animeItem.attributes.ageRatingGuide}</h2>
+            <p class="font-bold text-2xl sm:h-[60px]">${animeItem.attributes.titles.en ?? animeItem.attributes.titles.en_jp}</p>
           </div>
           <div class="border flex gap-8 px-5 py-5 w-full">
             <img src="/FindYourAnime/images/chart-bar-popular.svg" alt="Popular icon" width="48">

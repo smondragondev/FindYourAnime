@@ -16,7 +16,7 @@
   </head>
   <body class="bg-background absolute">
     <header></header>
-    <main class="px-10 py-10">      
+    <main class="px-2 py-5 sm:px-10 sm:py-10">      
       <h1 class="text-3xl sm:text-5xl lg:text-7xl">Animes</h1>
       <div class="h-24 mb-4">
         <div class="absolute w-[300px]">
@@ -28,33 +28,117 @@
       </div>
       <div class="flex flex-col gap-4">
         <h2 class="text-xl sm:text-3xl lg:text-5xl">Filters</h2>
-        <select 
+        <fieldset class="py-4 border-b border-secondary-300">
+          <legend class="mb-4">Average Rating</legend>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-4">
+              <input 
+              class="w-5 col-span-1 ml-5"
+              type="checkbox" name="average-rating" id="avg-25" value="25">
+              <label for="avg-25" class="col-span-2 text-start">
+                0% - 25%
+              </label>              
+            </div>
+            <div class="grid grid-cols-4">
+              <input               
+                class="w-5 col-span-1 ml-5"  
+                type="checkbox" name="average-rating" id="avg-50" value="50">
+                <label for="avg-50" class="col-span-2 text-start">
+                  25% - 50%
+                </label>
+            </div>
+            <div class="grid grid-cols-4">
+              <input               
+                class="w-5 col-span-1 ml-5"  
+                type="checkbox" name="average-rating" id="avg-75" value="75">
+              <label for="avg-75" class="col-span-2 text-start">
+                50% - 75%
+              </label>
+            </div>
+            <div class="grid grid-cols-4">
+              <input               
+               class="w-5 col-span-1 ml-5"  
+              type="checkbox" name="average-rating" id="avg-100" value="100">
+              <label for="avg-100" class="col-span-2 text-start">
+                75% - 100%
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="py-4 border-b border-secondary-300">
+          <legend class="mb-4">Number of Episodes</legend>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-4">
+              <input 
+              class="w-5 col-span-1 ml-5"
+              type="checkbox" name="number-episodes" id="nepisodes-10" value="10">
+              <label for="nepisodes-10" class="col-span-2 text-start">
+                0 - 10
+              </label>              
+            </div>
+            <div class="grid grid-cols-4">
+              <input               
+                class="w-5 col-span-1 ml-5"  
+                type="checkbox" name="number-episodes" id="nepisodes-50" value="30">
+                <label for="nepisodes" class="col-span-2 text-start">
+                 10 - 30
+                </label>
+            </div>
+            <div class="grid grid-cols-4">
+              <input               
+                class="w-5 col-span-1 ml-5"  
+                type="checkbox" name="number-episodes" id="nepisodes-60" value="60">
+              <label for="avg-75" class="col-span-2 text-start">
+                30 - 60
+              </label>
+            </div>
+            <div class="grid grid-cols-4">
+              <input               
+               class="w-5 col-span-1 ml-5"  
+              type="checkbox" name="number-episodes" id="nepisodes-100" value="100">
+              <label for="nepisodes-100" class="col-span-2 text-start">
+                > 60
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="py-4 border-b border-secondary-300">
+          <legend class="mb-4">Age Rating</legend>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-4">
+              <input 
+              class="w-5 col-span-1 ml-5"
+              type="checkbox" name="age-rating" id="arating-g" value="g">
+              <label for="arating-g" class="col-span-2 text-start">
+                G
+              </label>              
+            </div>
+            <div class="grid grid-cols-4">
+              <input               
+                class="w-5 col-span-1 ml-5"  
+                type="checkbox" name="age-rating" id="arating-pg" value="pg">
+                <label for="arating-pg" class="col-span-2 text-start">
+                 PG
+                </label>
+            </div>
+          </div>
+        </fieldset>
+        <!-- <select 
           class="border border-primary-500 rounded-xl px-2 py-5 w-full"
-          name="" id="">
+          name="average-rating" id="average-rating">
             <option value="">Select one</option>
-            <option value="option-1">Option 1</option>
-            <option value="option-2">Option 2</option>
-            <option value="option-3">Option 3</option>
-            <option value="option-4">Option 4</option>
-        </select>
-        <select 
-          class="border border-primary-500 rounded-xl px-2 py-5 w-full"
-          name="" id="">
-            <option value="">Select one</option>
-            <option value="option-1">Option 1</option>
-            <option value="option-2">Option 2</option>
-            <option value="option-3">Option 3</option>
-            <option value="option-4">Option 4</option>
-        </select>
-        <select 
-          class="border border-primary-500 rounded-xl px-2 py-5 w-full"
-          name="" id="">
-            <option value="">Select one</option>
-            <option value="option-1">Option 1</option>
-            <option value="option-2">Option 2</option>
-            <option value="option-3">Option 3</option>
-            <option value="option-4">Option 4</option>
-        </select>
+            <option value="10">0% - 10%</option>
+            <option value="20">10% - 20%</option>
+            <option value="30">20% - 30%</option>
+            <option value="40">30% - 40%</option>
+            <option value="50">30% - 40%</option>
+            <option value="60">30% - 40%</option>
+            <option value="70">30% - 40%</option>
+            <option value="80">30% - 40%</option>
+            <option value="90">30% - 40%</option>
+            <option value="100">30% - 40%</option>
+        </select> -->
+
       </div>
       <section class="text-center pt-0 py-20 mt-8">        
         <div id="filtered-anime" class="grid grid-cols-1 gap-4 py-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">

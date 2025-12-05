@@ -13,7 +13,7 @@ function convertToJson(res) {
 export default class AnimeData {
 
     async getData() {
-        const url = `${baseURL}/anime?page[size]=12`;
+        const url = `${baseURL}/anime?page[size]=12&filter[ageRating]=G,PG`;
         const response = await fetch(url);
         const data = await convertToJson(response);
         return data.data;
