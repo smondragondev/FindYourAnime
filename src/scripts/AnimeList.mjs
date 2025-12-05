@@ -39,7 +39,7 @@ export default class AnimeList {
 
     renderLoading(){
         this.outputHTML.innerHTML = `
-          <div class="flex justify-center items-center py-8 min-w-dvw">
+          <div class="flex justify-center items-center py-8 min-w-[95dvw]">
             <span class="loader"></span>
           </div>
         `;
