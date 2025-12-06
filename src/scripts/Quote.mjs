@@ -59,7 +59,7 @@ export default class Quote {
 
     renderNewSavedQuote() {
         const emptyText = document.querySelector("#empty-text");
-        emptyText.remove();
+        if (emptyText) emptyText.remove();
         renderListWithTemplate(
             quoteCardTemplate,
             this.outputListHTML,
