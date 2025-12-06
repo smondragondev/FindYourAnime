@@ -14,7 +14,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
-        animeListing: resolve(__dirname, "src/anime-listing/index.html")
+        animeListing: resolve(__dirname, "src/anime-listing/index.html"),
+        quoteGenerator: resolve(__dirname, "src/quote-generator/index.html"),
       }
     }
   },
