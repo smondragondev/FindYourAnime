@@ -18,8 +18,9 @@
     <header></header>
     <main class="px-3 py-5 sm:px-10 sm:py-10">      
       <h1 class="text-3xl sm:text-5xl lg:text-7xl">Quote Generator</h1>
-      <section class="text-center pt-8 py-20 mt-8">   
+      <section class="flex flex-col justify-center items-center gap-4 sm:gap-8 text-center pt-8 py-20 mt-8">   
         <button
+        id="generate-button"
         class="bg-primary text-typeface px-5 py-5 rounded-full
         text-2xl w-56 h-56
         sm:text-3xl  sm:w-64 sm:h-64 
@@ -27,18 +28,55 @@
         hover:bg-primary-900 hover:text-background">
         Generate
         </button>  
-        <div class="flex justify-center items-center">
+        <div class="hidden justify-center items-center" id="loading-indicator">
             <span class="block generator-loader"></span>   
         </div>
-        <div class="flex flex-col text-start gap-4 border-2 border-secondary-500 p-8 w-[90%] mx-auto">
-            <h2 class="text-4xl sm:text-7xl text-center font-cursive! mb-4">" I may be inept, but at least I don't forget to aim high! "</h2>
-            <h3 class="text-xl text-secondary-700">Anime: Horizon in the Middle of Nowhere</h3>
-            <p class="text-sm -mt-3">Kyoukai Senjou No Horizon</h3>
-            <p class="text-primary-700">Character: Aoi Toori</p>
+        <div class="hidden flex-col text-start gap-4 border-2 border-secondary-500 p-8 w-[90%] mx-auto" id="generated-quote">
         </div>
-        <button class="bg-secondary text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary-900 hover:text-background cursor-pointer">
+        <div class="flex flex-col w-[90%] sm:flex-row gap-8">
+            <button 
+              id="save-quote"
+              class="hidden bg-primary w-full sm:w-70 text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-primary-900 hover:text-background">
+              Save Quote
+            </button>         
+            <button 
+                id="new-quote"
+                class="hidden bg-secondary sm:w-70  text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary-900 hover:text-background cursor-pointer">
                 New Quote
-        </button>  
+            </button>  
+        </div>
+      </section>
+      <section class="text-center pt-8 py-20 mt-8">
+        <h2 class="text-2xl font-bold sm:font-normal sm:text-4xl lg:text-6xl text-start mb-4 sm:mb-8">Generated Quotes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="quote-list">
+            <!-- <div class="relative flex flex-col text-start gap-4 border-2 border-secondary-500 p-8">
+                <button class="absolute top-2 -right-2 w-10 cursor-pointer">
+                    <img src="/images/x-secondary.svg" alt="Delete Quote button" width="24">
+                </button>
+                <h2 class="text-3xl sm:text-5xl text-center font-cursive! mb-4">" I may be inept, but at least I don't forget to aim high! "</h2>
+                <h3 class="text-lg text-secondary-700">Anime: Horizon in the Middle of Nowhere</h3>
+                <p class="text-sm -mt-3">Kyoukai Senjou No Horizon</h3>
+                <p class="text-primary-700">Character: Aoi Toori</p>
+            </div>
+            <div class="relative flex flex-col text-start gap-4 border-2 border-secondary-500 p-8">
+                <button class="absolute top-2 -right-2 w-10 cursor-pointer">
+                    <img src="/images/x-secondary.svg" alt="Delete Quote button" width="24">
+                </button>
+                <h2 class="text-3xl sm:text-5xl text-center font-cursive! mb-4">" I may be inept, but at least I don't forget to aim high! "</h2>
+                <h3 class="text-lg text-secondary-700">Anime: Horizon in the Middle of Nowhere</h3>
+                <p class="text-sm -mt-3">Kyoukai Senjou No Horizon</h3>
+                <p class="text-primary-700">Character: Aoi Toori</p>
+            </div>
+            <div class="relative flex flex-col text-start gap-4 border-2 border-secondary-500 p-8">
+                <button class="absolute top-2 -right-2 w-10 cursor-pointer">
+                    <img src="/images/x-secondary.svg" alt="Delete Quote button" width="24">
+                </button>
+                <h2 class="text-3xl sm:text-5xl text-center font-cursive! mb-4">" I may be inept, but at least I don't forget to aim high! "</h2>
+                <h3 class="text-lg text-secondary-700">Anime: Horizon in the Middle of Nowhere</h3>
+                <p class="text-sm -mt-3">Kyoukai Senjou No Horizon</h3>
+                <p class="text-primary-700">Character: Aoi Toori</p>
+            </div> -->
+        </div>
       </section>
     </main>
     <footer></footer>

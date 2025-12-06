@@ -122,3 +122,13 @@ export async function getFileData(path){
     const data = await response.json();
     return data;
 }
+
+export function convertToJson(res) {
+    const dataJson = res.json();
+    if (res.ok) {
+        return dataJson;
+    } else {
+        const jsonReponse = JSON.stringify(dataJson);
+        throw { name: "servicesError", message: jsonReponse };
+    }
+}

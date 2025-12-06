@@ -1,14 +1,8 @@
+import {convertToJson} from "./utils.mjs";
+
 const baseURL = import.meta.env.VITE_KITSU_SERVER_URL;
 
-function convertToJson(res) {
-    const dataJson = res.json();
-    if (res.ok) {
-        return dataJson;
-    } else {
-        const jsonReponse = JSON.stringify(dataJson);
-        throw { name: "servicesError", message: jsonReponse };
-    }
-}
+
 
 export default class AnimeData {
 
