@@ -1,5 +1,5 @@
 import { QUOTE_KEY } from "./constants.mjs";
-import { getLocalStorage,setLocalStorage,renderWithTemplate,renderListWithTemplate } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, renderWithTemplate, renderListWithTemplate } from "./utils.mjs";
 
 function quoteCardTemplate(quote) {
     return `
@@ -15,7 +15,7 @@ function quoteCardTemplate(quote) {
     `;
 }
 
-function generatedQuoteTemplate(quote){
+function generatedQuoteTemplate(quote) {
     return `
         <h2 class="text-4xl sm:text-7xl text-center font-cursive! mb-4">"${quote.content}"</h2>
         <h3 class="text-xl text-secondary-700">Anime: ${quote.anime.name}</h3>
@@ -24,33 +24,32 @@ function generatedQuoteTemplate(quote){
     `;
 }
 
-export default class Quote{
+export default class Quote {
 
-    constructor(outputListHTML,outputHTML,dataSource){
+    constructor(outputListHTML, outputHTML, dataSource) {
         this.outputHTML = outputHTML;
         this.outputListHTML = outputListHTML;
         this.dataSource = dataSource;
         this.quotes = [];
     }
 
-    async init(){
+    async init() {
         this.quotes = getLocalStorage(QUOTE_KEY) ?? [];
         this.renderGeneratedQuoteList();
     }
 
-    async generate(){
+    async generate() {
         this.generatedQuote = await this.dataSource.getData();
         this.renderGeneratedQuote(this.generatedQuote);
     }
 
-    saveQuote(){
+    saveQuote() {
         this.quotes.push(this.generatedQuote);
-        setLocalStorage(QUOTE_KEY,this.quotes);
+        setLocalStorage(QUOTE_KEY, this.quotes);
         this.renderNewSavedQuote();
     }
 
-    deleteQuote(content){
-        console.log(this.quotes);
+    deleteQuote(content) {
         const selectedQuote = this.quotes.find((quote) => quote.content === content);
         if (!selectedQuote) return;
         this.quotes = this.quotes.filter((quote) => quote.content !== content);
@@ -59,37 +58,50 @@ export default class Quote{
     }
 
     renderNewSavedQuote() {
+        const emptyText = document.querySelector("#empty-text");
+        emptyText.remove();
         renderListWithTemplate(
-          quoteCardTemplate,
-          this.outputListHTML,
-          [this.generatedQuote],
-          "beforeend",
+            quoteCardTemplate,
+            this.outputListHTML,
+            [this.generatedQuote],
+            "beforeend",
         );
-      }
+        this.addEventListenerToDeleteButton();
+    }
 
-    renderGeneratedQuoteList(){
-        if (this.quotes.length !== 0){
-            renderListWithTemplate(
-                quoteCardTemplate,
-                this.outputListHTML,
-                this.quotes,
-                "afterbegin",
-                true,
-            )
-        } else {
+    renderGeneratedQuoteList() {
+        renderListWithTemplate(
+            quoteCardTemplate,
+            this.outputListHTML,
+            this.quotes,
+            "afterbegin",
+            true,
+        )
+        if (this.quotes.length === 0) {
             const emptyHTML = `
-                <p class="sm:text-xl sm:mt-8">No generated quotes are saved</p>
+                <p class="sm:text-xl sm:mt-8" id="empty-text">No generated quotes are saved</p>
             `;
             this.outputListHTML.parentElement.insertAdjacentHTML("beforeend", emptyHTML);
         }
     }
 
-    renderGeneratedQuote(quote){
+    renderGeneratedQuote(quote) {
+        this.outputHTML.innerHTML = "";
         const quoteHTML = generatedQuoteTemplate(quote);
         renderWithTemplate(
             quoteHTML,
             this.outputHTML,
         )
+    }
+
+    addEventListenerToDeleteButton() {
+        const deleteButtons = document.querySelectorAll(".delete-button");
+        deleteButtons.forEach((deleteButton) => {
+            deleteButton.addEventListener("click", () => {
+                const content = deleteButton.dataset.content;
+                this.deleteQuote(content);
+            });
+        });
     }
 
 }
