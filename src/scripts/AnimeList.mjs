@@ -2,7 +2,7 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 function animeCardTemplate(animeItem) {
   const imageUrl = animeItem.attributes.posterImage.large;
-  const ratingText = `${animeItem.attributes.ageRating} - ${animeItem.attributes.ageRatingGuide}`;
+  const ratingText = `${animeItem.attributes.ageRating} - ${animeItem.attributes.ageRatingGuide ?? ""}`;
   const title = animeItem.attributes.titles.en ?? animeItem.attributes.titles.en_jp ?? animeItem.attributes.titles.ja_jp ?? "No Title";
   const averageRating = animeItem.attributes.averageRating;
   return `
@@ -28,16 +28,35 @@ function animeCardTemplate(animeItem) {
     `
 }
 export default class AnimeList {
-  constructor(outputHTML, dataSource) {
+  constructor(
+    outputHTML,
+    dataSource,) {
     this.outputHTML = outputHTML;
     this.dataSource = dataSource;
     this.animeList = [];
     this.isLoading = false;
     this.hasMoreData = true;
     this.currentPage = 1;
+    this.filters = {};
   }
 
   async init() {
+  }
+
+  setupFilters({
+      ageRating,
+      averageRating,
+      episodeCount,
+      text,
+    }){
+    this.setNewLoad();
+    this.renderList({clear:true})
+    this.filters = {
+      ageRating,
+      averageRating,
+      episodeCount,
+      text,
+    }
   }
 
   setupInfiniteScroll() {
@@ -53,7 +72,7 @@ export default class AnimeList {
       async (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting && !this.isLoading && this.hasMoreData) {
-          if(this.isLoading || !this.hasMoreData) return;
+          if (this.isLoading || !this.hasMoreData) return;
           this.isLoading = true;
           this.toggleIndicatorVisibility(loadingIndicator);
           await this.loadNextPage();
@@ -90,23 +109,31 @@ export default class AnimeList {
     loadingIndicator.classList.toggle("flex");
   }
 
-  async loadNextPage(){
-    try{
+  setNewLoad(){
+    this.animeList = [];
+    this.isLoading = false;
+    this.hasMoreData = true;
+    this.currentPage = 1;
+  }
+
+  async loadNextPage() {
+    try {
       const newAnime = await this.dataSource.getData({
         pageNumber: this.currentPage,
+        ...this.filters,
       });
-      if (newAnime && newAnime.length > 0){
+      if (newAnime && newAnime.length > 0) {
         this.animeList = [...this.animeList, ...newAnime];
         this.currentPage++;
-        this.renderList({position:"beforeend", animeList: newAnime})
-      } else{
+        this.renderList({ position: "beforeend", animeList: newAnime })
+      } else {
         this.hasMoreData = false;
         this.scrollObserver.disconnect();
         this.sentinel.remove();
       }
-    } catch (error){
+    } catch (error) {
       throw Error("Error loading anime:", error);
-    } 
+    }
   }
 
   renderLoading() {

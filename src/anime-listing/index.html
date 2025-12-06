@@ -7,6 +7,8 @@
     <title>Find Your Anime - Listing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="description" content="Discover and explore anime series with our comprehensive anime listing page. Filter by rating, episode count, and age rating to find your perfect anime match.">
+    <meta name="author" content="Sergio Mondragon">
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
@@ -19,22 +21,22 @@
     <main class="px-3 py-5 sm:px-10 sm:py-10">      
       <h1 class="text-3xl sm:text-5xl lg:text-7xl">Animes</h1>
       <div class="h-24 mb-4">
-        <div class="absolute w-[300px]">
+        <label class="absolute w-[340px] sm:w-[500px]">
             <span class="relative top-11 left-3">
               <img src="/images/search.svg" alt="Search Icon" width="24">
             </span>
-            <input name="search" type="text" class="border border-primary-500 rounded-2xl px-10 py-5 w-full" placeholder="Find your anime">
-        </div>
+            <input name="search" id="search" type="text" class="border border-primary-500 rounded-2xl px-10 py-1 h-15 w-full" placeholder="Search by title, character or cast ...">
+        </label>
       </div>
-      <div class="flex flex-col gap-4">
-        <h2 class="text-xl sm:text-3xl lg:text-5xl">Filters</h2>
-        <fieldset class="py-4 border-b border-secondary-300">
+      <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        <h2 class="text-xl sm:col-span-2 md:col-span-3 lg:col-span-5 sm:text-3xl lg:text-5xl">Filters</h2>
+        <fieldset class="py-4 border-b border-secondary-300 lg:col-span-2">
           <legend class="mb-4">Average Rating</legend>
-          <div class="grid grid-cols-2 gap-y-4">
+          <div class="grid grid-cols-2 sm:grid-cols-1 gap-y-4">
             <div class="grid grid-cols-4">
               <input 
               class="w-5 col-span-1 ml-3"
-              type="checkbox" name="average-rating" id="avg-25" value="25">
+              type="radio" name="average-rating" id="avg-25" value="0..25">
               <label for="avg-25" class="col-span-2 text-start">
                 0% - 25%
               </label>              
@@ -42,7 +44,7 @@
             <div class="grid grid-cols-4">
               <input               
                 class="w-5 col-span-1 ml-3"  
-                type="checkbox" name="average-rating" id="avg-50" value="50">
+                type="radio" name="average-rating" id="avg-50" value="25..50">
                 <label for="avg-50" class="col-span-2 text-start">
                   25% - 50%
                 </label>
@@ -50,7 +52,7 @@
             <div class="grid grid-cols-4">
               <input               
                 class="w-5 col-span-1 ml-3"  
-                type="checkbox" name="average-rating" id="avg-75" value="75">
+                type="radio" name="average-rating" id="avg-75" value="50..75">
               <label for="avg-75" class="col-span-2 text-start">
                 50% - 75%
               </label>
@@ -58,20 +60,20 @@
             <div class="grid grid-cols-4">
               <input               
                class="w-5 col-span-1 ml-3"  
-              type="checkbox" name="average-rating" id="avg-100" value="100">
+              type="radio" name="average-rating" id="avg-100" value="75..100">
               <label for="avg-100" class="col-span-2 text-start">
                 75% - 100%
               </label>
             </div>
           </div>
         </fieldset>
-        <fieldset class="py-4 border-b border-secondary-300">
+        <fieldset class="py-4 border-b border-secondary-300 lg:col-span-2">
           <legend class="mb-4">Number of Episodes</legend>
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-2 sm:grid-cols-1 gap-4">
             <div class="grid grid-cols-4">
               <input 
               class="w-5 col-span-1 ml-3"
-              type="checkbox" name="number-episodes" id="nepisodes-10" value="10">
+              type="radio" name="number-episodes" id="nepisodes-10" value="0..10">
               <label for="nepisodes-10" class="col-span-2 text-start">
                 0 - 10
               </label>              
@@ -79,23 +81,23 @@
             <div class="grid grid-cols-4">
               <input               
                 class="w-5 col-span-1 ml-3"  
-                type="checkbox" name="number-episodes" id="nepisodes-50" value="30">
-                <label for="nepisodes" class="col-span-2 text-start">
+                type="radio" name="number-episodes" id="nepisodes-30" value="10..30">
+                <label for="nepisodes-30" class="col-span-2 text-start">
                  10 - 30
                 </label>
             </div>
             <div class="grid grid-cols-4">
               <input               
                 class="w-5 col-span-1 ml-3"  
-                type="checkbox" name="number-episodes" id="nepisodes-60" value="60">
-              <label for="avg-75" class="col-span-2 text-start">
+                type="radio" name="number-episodes" id="nepisodes-60" value="30..60">
+              <label for="nepisodes-60" class="col-span-2 text-start">
                 30 - 60
               </label>
             </div>
             <div class="grid grid-cols-4">
               <input               
                class="w-5 col-span-1 ml-3"  
-              type="checkbox" name="number-episodes" id="nepisodes-100" value="100">
+              type="radio" name="number-episodes" id="nepisodes-100" value="60..">
               <label for="nepisodes-100" class="col-span-2 text-start">
                 > 60
               </label>
@@ -105,18 +107,18 @@
         <fieldset class="py-4 border-b border-secondary-300">
           <legend class="mb-4">Age Rating</legend>
           <div class="grid grid-cols-2 gap-4">
-            <div class="grid grid-cols-4">
+            <div class="grid grid-cols-4 md:grid-cols-3 lg:gap-4">
               <input 
               class="w-5 col-span-1 ml-3"
-              type="checkbox" name="age-rating" id="arating-g" value="g">
+              type="checkbox" name="age-rating" id="arating-g" value="G">
               <label for="arating-g" class="col-span-2 text-start">
                 G
               </label>              
             </div>
-            <div class="grid grid-cols-4">
+            <div class="grid grid-cols-4 md:grid-cols-3 lg:gap-4">
               <input               
                 class="w-5 col-span-1 ml-3"  
-                type="checkbox" name="age-rating" id="arating-pg" value="pg">
+                type="checkbox" name="age-rating" id="arating-pg" value="PG">
                 <label for="arating-pg" class="col-span-2 text-start">
                  PG
                 </label>

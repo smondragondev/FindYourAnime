@@ -12,21 +12,39 @@ function convertToJson(res) {
 
 export default class AnimeData {
 
-    async getData({pageNumber = 1, pageSize = 12,sort = "popularityRank", url = ""} = {}) {
+    async getData(
+        {   
+            pageNumber = 1,
+            pageSize = 12, 
+            sort = "popularityRank", 
+            ageRating = "G,PG", 
+            url = "",
+            averageRating = "",
+            episodeCount = "",
+            text = "",
+
+        } = {}
+    ) {
         let formattedUrl = "";
-        if (url != ""){
+        if (url != "") {
             formattedUrl = url;
-        }else{
-            formattedUrl = `${baseURL}/anime?page[size]=${pageSize}&page[number]=${pageNumber}&filter[ageRating]=G,PG&sort=${sort}`;
+        } else {
+            const averageRatingFilter = averageRating !== "" ? `&filter[averageRating]=${averageRating}` : "";
+            const episodeCountFilter = episodeCount !== "" ? `&filter[episodeCount]=${episodeCount}` : "";
+            const textFilter = text !== "" ? `&filter[text]=${text}` : "";
+            const ageRatingFilter = ageRating !== "" ? `&filter[ageRating]=${ageRating}` : "&filter[ageRating]=G,PG";
+            const filters = `${ageRatingFilter}${averageRatingFilter}${episodeCountFilter}${textFilter}`;
+            formattedUrl = `${baseURL}/anime?page[size]=${pageSize}&page[number]=${pageNumber}${filters}&sort=${sort}`;
         }
         const response = await fetch(formattedUrl);
         const data = await convertToJson(response);
         return data.data;
     }
 
+
     async findById(id) {
         const response = await fetch(`${baseURL}anime/${id}`);
         const data = await convertToJson(response);
-        return data.Result;
+        return data.data;
     }
 }

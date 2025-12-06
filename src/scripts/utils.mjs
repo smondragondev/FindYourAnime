@@ -24,7 +24,7 @@ export function renderListWithTemplate(
 
   //prevent errors if list is null or empty
   if (!list || !Array.isArray(list) || list.length === 0) {
-    parentElement.innerHTML = "<p></p>";
+    // parentElement.innerHTML = "";
     return;
   }
 
