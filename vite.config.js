@@ -18,6 +18,7 @@ export default defineConfig({
         animeDetail: resolve(__dirname, "src/anime-detail/index.html"),
         animeFavorites: resolve(__dirname, "src/anime-favorites/index.html"),
         quoteGenerator: resolve(__dirname, "src/quote-generator/index.html"),
+        user: resolve(__dirname, "src/user/index.html"),
       }
     }
   },

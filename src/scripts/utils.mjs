@@ -62,37 +62,6 @@ export function getCurrentPath() {
   return url;
 }
 
-export function addWayFinding(parentSelector) {
-  const navOptions = document.querySelectorAll(`#${parentSelector} li a`);
-  navOptions.forEach(
-    (option) => {
-      const currentPath = getCurrentPath();
-      if (currentPath === "/FindYourAnime/" && option.pathname === "/index.html"){
-        option.classList.add("text-primary-900");
-        option.classList.add("border-t-3");
-        return
-      }
-      if (option.pathname === currentPath) {
-        option.classList.add("text-primary-900");
-        option.classList.add("border-t-3");
-      }
-    }
-  )
-}
-
-export async function loadHeaderFooter(callback) {
-  const header = document.querySelector("header");
-  const footer = document.querySelector("footer");
-  const headerTemplate = await loadTemplate("/FindYourAnime/partials/header.html");
-  const footerTemplate = await loadTemplate("/FindYourAnime/partials/footer.html");
-  renderWithTemplate(headerTemplate, header, "", callback);
-  renderWithTemplate(footerTemplate, footer);
-  getLastModification();
-  handleMenu();
-  addWayFinding("nav-options");
-  addWayFinding("left-nav-options");
-}
-
 export function getLastModification() {
   const currentYearSpan = document.querySelector("#currentYear");
   const lastModifiedParagraph = document.querySelector("#lastModified");
@@ -104,26 +73,6 @@ export function getLastModification() {
   const lastModified = document.lastModified;
   lastModifiedParagraph.textContent = `Last Modification: ${lastModified}`;
 
-}
-
-export function handleMenu(){
-  const openMenuButton = document.querySelector("#menu-button");
-  const closeMenu = document.querySelector("#close-menu");
-  openMenuButton.addEventListener("click",() => {
-    toggleHeader();
-    addWayFinding();
-  });
-  closeMenu.addEventListener("click", () => {
-    toggleHeader();
-  });
-}
-
-export function toggleHeader(){
-  const optionMenu = document.querySelector("#option-menu");
-  const headerMenu = document.querySelector("#header-menu");
-  headerMenu.classList.toggle("hidden");
-  optionMenu.classList.toggle("flex");
-  optionMenu.classList.toggle("hidden");
 }
 
 export async function getFileData(path){

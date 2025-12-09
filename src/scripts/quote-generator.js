@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import loadHeaderFooter from "./loadHeaderFooter.mjs";
 import Quote from "./Quote.mjs";
 import QuoteData from "./QuoteData.mjs";
 

@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import loadHeaderFooter from "./loadHeaderFooter.mjs";
 import FeatureData from "./FeatureData.mjs";
 import Features from "./Features.mjs";
 import AnimeData from "./AnimeData.mjs";

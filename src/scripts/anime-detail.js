@@ -1,4 +1,5 @@
-import { getParam, loadHeaderFooter } from "./utils.mjs";
+import { getParam } from "./utils.mjs";
+import loadHeaderFooter from "./loadHeaderFooter.mjs";
 import AnimeData from "./AnimeData.mjs";
 import AnimeDetail from "./AnimeDetail.mjs";
 import AnimeFavorite from "./AnimeFavorite.mjs";

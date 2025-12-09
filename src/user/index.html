@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Your Anime - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="description" content="Find Your Anime - Discover the perfect anime recommendations tailored to your preferences. Our smart recommendation system helps both new and experienced anime fans find their next favorite show quickly and accurately.">
+    <meta name="author" content="Sergio Mondragon">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script type="module" src="/scripts/login.js"></script>
+  </head>
+  <body class="bg-background absolute">
+    <header></header>
+    <main class="px-10 py-10">
+      <section class="gap-4 sm:grid sm:grid-cols-2 lg:gap-8 min-h-[800px] items-center">
+        <div class="flex flex-col gap-4">          
+            <div class="flex sm:hidden">
+                <img src="/images/hero-image.webp" alt="Hero Image for Find Your Anime" width="600" loading="lazy"/>
+            </div>
+            <form 
+            method="POST"
+            class="flex gap-4 items-start flex-col lg:justify-start "
+            action="/FindYourAnime/index.html">
+                <label for="username" >
+                    Username * 
+                </label>
+                <input 
+                class="py-4 px-4 border border-secondary rounded-2xl invalid:border-primary-500 w-full"
+                type="text" name="username" id="username" placeholder="Enter your username" required>
+                <label for="password">
+                    Password *
+                </label>
+                <input             
+                class="py-4 px-4 border border-secondary rounded-2xl invalid:border-primary-500 w-full"
+                type="password" name="password" id="password" placeholder="Enter your password" required>
+                <button 
+                type="submit"
+                class="w-full text-center bg-primary text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-primary-900 hover:text-background">
+                Login</button>
+            </form>
+        </div>
+        <div class="hidden sm:flex sm:justify-end">
+          <img src="/images/hero-image.webp" alt="Hero Image for Find Your Anime" width="600" loading="lazy"/>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
