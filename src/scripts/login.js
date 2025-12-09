@@ -16,6 +16,7 @@ loginForm.addEventListener("submit", (event) => {
     if (!username || !password){
         event.preventDefault();
         alert("Please fill out all required fields.");
+        return;
     }
     user.login({username});
 })

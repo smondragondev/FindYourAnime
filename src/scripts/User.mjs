@@ -2,7 +2,7 @@ export default class User {
   constructor(
     dataSource,) {
     this.dataSource = dataSource;
-    this.user = {};
+    this.user = undefined;
   }
 
   init() {
@@ -12,6 +12,11 @@ export default class User {
   login(userData){
     this.user = userData;
     this.dataSource.setData(this.user);
+  }
+
+  logout(){
+    this.user = undefined;
+    this.dataSource.clearData();
   }
 
   isAuthenticated(){

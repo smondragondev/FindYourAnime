@@ -59,8 +59,16 @@ export function handleAuthentication(){
     const user = new User(userData);
     user.init();
     const loginButton = document.getElementById("login-button");
-    loginButton.classList.toggle("hidden");
-    
+    const sideLoginBtn = document.getElementById("side-login-button");
     const userName = document.getElementById("username");
+    const sideUserName = document.getElementById("side-username");
+    if (!user.isAuthenticated()) {
+      userName.classList.toggle("hidden");
+      sideUserName.classList.toggle("hidden");
+      return 
+    };
+    loginButton.classList.toggle("hidden");
+    sideLoginBtn.classList.toggle("hidden");
     userName.textContent = user.getUserData().username;
+    sideUserName.textContent = user.getUserData().username;
 }

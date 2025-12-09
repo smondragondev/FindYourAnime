@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate, renderWithTemplate } from "./utils.mjs";
 
 function animeCardTemplate(animeItem) {
   const imageUrl = animeItem.attributes.posterImage.large;
@@ -32,16 +32,33 @@ function animeCardTemplate(animeItem) {
 export default class AnimeFavorite {
   constructor(
     outputHTML,
-    dataSource,) {
+    dataSource,isAuthenticated) {
     this.outputHTML = outputHTML;
     this.dataSource = dataSource;
     this.animeList = [];
+    this.isAuthenticated = isAuthenticated;
   }
 
   init() {
     this.animeList = this.dataSource.getData();
     if (!this.outputHTML) return;
+    if (!this.isAuthenticated) this.renderUserIsRequired();
     this.renderList();
+  }
+
+  renderUserIsRequired(){
+    const contentHtml = `
+      <p> Please sign in to access your favorites and save your favorite anime.</p>
+      <a 
+        href="/FindYourAnime/user/index.html"
+        class="bg-secondary text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary-900 hover:text-background cursor-pointer">
+          View Details
+      </a>   
+    `;
+    renderWithTemplate(
+      contentHtml,
+      this.outputHTML,
+    )
   }
 
   renderList() {
