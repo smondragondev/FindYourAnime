@@ -42,22 +42,27 @@ export default class AnimeFavorite {
   init() {
     this.animeList = this.dataSource.getData();
     if (!this.outputHTML) return;
-    if (!this.isAuthenticated) this.renderUserIsRequired();
+    if (!this.isAuthenticated) {
+      this.renderUserIsRequired();
+      return;
+    }
     this.renderList();
   }
 
   renderUserIsRequired(){
     const contentHtml = `
-      <p> Please sign in to access your favorites and save your favorite anime.</p>
-      <a 
-        href="/FindYourAnime/user/index.html"
-        class="bg-secondary text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary-900 hover:text-background cursor-pointer">
-          View Details
-      </a>   
+      <div class="flex flex-col gap-4 justify-center items-center">
+        <p> Please sign in to access your favorites and save your favorite anime.</p>
+        <a 
+          href="/FindYourAnime/user/index.html"
+          class="bg-secondary w-[120px] text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary-900 hover:text-background cursor-pointer">
+            Login
+        </a>   
+      </div>
     `;
     renderWithTemplate(
       contentHtml,
-      this.outputHTML,
+      this.outputHTML.parentElement,
     )
   }
 

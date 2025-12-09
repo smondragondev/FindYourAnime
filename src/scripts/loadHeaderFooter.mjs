@@ -60,8 +60,8 @@ export function handleAuthentication(){
     user.init();
     const loginButton = document.getElementById("login-button");
     const sideLoginBtn = document.getElementById("side-login-button");
-    const userName = document.getElementById("username");
-    const sideUserName = document.getElementById("side-username");
+    const userName = document.getElementById("username-text");
+    const sideUserName = document.getElementById("side-username-text");
     if (!user.isAuthenticated()) {
       userName.classList.toggle("hidden");
       sideUserName.classList.toggle("hidden");
