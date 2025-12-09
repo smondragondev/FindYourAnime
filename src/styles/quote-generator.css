@@ -39,6 +39,22 @@
   animation: rotateX 1s linear infinite;
 }
 
+.fade-in{
+  animation: fade-in 2s linear 0s 1 normal none;
+}
+
+
+
+@keyframes fade-in{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
 @keyframes rotateY {
   0%{ transform: rotateY(0deg)}
   100% { transform: rotateY(-180deg)}

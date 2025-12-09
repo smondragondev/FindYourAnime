@@ -3,7 +3,7 @@ import { getLocalStorage, setLocalStorage, renderWithTemplate, renderListWithTem
 
 function quoteCardTemplate(quote) {
     return `
-        <div class="relative flex flex-col text-start gap-4 border-2 border-secondary-500 p-8">
+        <div class="fade-in relative flex flex-col text-start gap-4 border-2 border-secondary-500 p-8">
             <button class="delete-button absolute top-2 -right-2 w-10 cursor-pointer" data-content="${quote.content}">
                 <img src="/FindYourAnime/images/x-secondary.svg" alt="Delete Quote button" width="24">
             </button>
@@ -87,6 +87,7 @@ export default class Quote {
 
     renderGeneratedQuote(quote) {
         this.outputHTML.innerHTML = "";
+        this.outputHTML.classList.toggle("fade-in");
         const quoteHTML = generatedQuoteTemplate(quote);
         renderWithTemplate(
             quoteHTML,

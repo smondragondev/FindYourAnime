@@ -7,7 +7,7 @@
     <title>Find Your Anime - Quote Generator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta name="description" content="">
+    <meta name="description" content="Generate and save anime quotes with our interactive quote generator. Discover memorable quotes from your favorite anime characters and build your personal collection.">
     <meta name="author" content="Sergio Mondragon">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css" />
@@ -25,6 +25,7 @@
         text-2xl w-56 h-56
         sm:text-3xl  sm:w-64 sm:h-64 
         cursor-pointer
+        hover: transition-transform hover:scale-110
         hover:bg-primary-900 hover:text-background">
         Generate
         </button>  
@@ -36,7 +37,7 @@
         <div class="flex flex-col w-[90%] sm:flex-row gap-8">
             <button 
               id="save-quote"
-              class="hidden bg-primary w-full sm:w-70 text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-primary-900 hover:text-background">
+              class="hidden cursor-pointer bg-primary w-full sm:w-70 text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-primary-900 hover:text-background">
               Save Quote
             </button>         
             <button 
@@ -48,34 +49,7 @@
       </section>
       <section class="text-center pt-8 py-20 mt-8">
         <h2 class="text-2xl font-bold sm:font-normal sm:text-4xl lg:text-6xl text-start mb-4 sm:mb-8">Generated Quotes</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="quote-list">
-            <!-- <div class="relative flex flex-col text-start gap-4 border-2 border-secondary-500 p-8">
-                <button class="absolute top-2 -right-2 w-10 cursor-pointer">
-                    <img src="/images/x-secondary.svg" alt="Delete Quote button" width="24">
-                </button>
-                <h2 class="text-3xl sm:text-5xl text-center font-cursive! mb-4">" I may be inept, but at least I don't forget to aim high! "</h2>
-                <h3 class="text-lg text-secondary-700">Anime: Horizon in the Middle of Nowhere</h3>
-                <p class="text-sm -mt-3">Kyoukai Senjou No Horizon</h3>
-                <p class="text-primary-700">Character: Aoi Toori</p>
-            </div>
-            <div class="relative flex flex-col text-start gap-4 border-2 border-secondary-500 p-8">
-                <button class="absolute top-2 -right-2 w-10 cursor-pointer">
-                    <img src="/images/x-secondary.svg" alt="Delete Quote button" width="24">
-                </button>
-                <h2 class="text-3xl sm:text-5xl text-center font-cursive! mb-4">" I may be inept, but at least I don't forget to aim high! "</h2>
-                <h3 class="text-lg text-secondary-700">Anime: Horizon in the Middle of Nowhere</h3>
-                <p class="text-sm -mt-3">Kyoukai Senjou No Horizon</h3>
-                <p class="text-primary-700">Character: Aoi Toori</p>
-            </div>
-            <div class="relative flex flex-col text-start gap-4 border-2 border-secondary-500 p-8">
-                <button class="absolute top-2 -right-2 w-10 cursor-pointer">
-                    <img src="/images/x-secondary.svg" alt="Delete Quote button" width="24">
-                </button>
-                <h2 class="text-3xl sm:text-5xl text-center font-cursive! mb-4">" I may be inept, but at least I don't forget to aim high! "</h2>
-                <h3 class="text-lg text-secondary-700">Anime: Horizon in the Middle of Nowhere</h3>
-                <p class="text-sm -mt-3">Kyoukai Senjou No Horizon</h3>
-                <p class="text-primary-700">Character: Aoi Toori</p>
-            </div> -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="quote-list">           
         </div>
       </section>
     </main>

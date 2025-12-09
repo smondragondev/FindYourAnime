@@ -37,7 +37,7 @@ export default class AnimeData {
 
 
     async findById(id) {
-        const response = await fetch(`${baseURL}anime/${id}`);
+        const response = await fetch(`${baseURL}/anime/${id}`);
         const data = await convertToJson(response);
         return data.data;
     }

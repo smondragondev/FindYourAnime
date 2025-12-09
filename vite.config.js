@@ -15,6 +15,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "src/index.html"),
         animeListing: resolve(__dirname, "src/anime-listing/index.html"),
+        animeDetail: resolve(__dirname, "src/anime-detail/index.html"),
         quoteGenerator: resolve(__dirname, "src/quote-generator/index.html"),
       }
     }

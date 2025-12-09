@@ -11,6 +11,15 @@ export function removeLocalStorage(key){
   localStorage.removeItem(key);
 }
 
+
+// get a url params
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const paramValue = urlParams.get(param);
+  return paramValue;
+}
+
 export function renderListWithTemplate(
   templateFn,
   parentElement,
