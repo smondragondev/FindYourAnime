@@ -7,7 +7,7 @@ function animeCardDetailTemplate(animeItem) {
     const dateInformation = startDate === endDate 
                             ? startDate : `${startDate} - ${endDate}`;
     return `
-     <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-3 gap-4">
             <h1 class="col-span-2 text-3xl sm:text-5xl lg:text-7xl">${animeAttributes.canonicalTitle}</h1>   
             <div class="hidden sm:flex sm:gap-4">
                 <p class="bg-primary h-fit p-2 rounded-2xl">Rank ${animeAttributes.popularityRank} Popularity</p> 
@@ -23,13 +23,16 @@ function animeCardDetailTemplate(animeItem) {
         <section class="flex flex-col sm:flex-row sm:gap-8 pt-0 py-20 mt-8">        
             <img class="block mx-auto shadow-lg sm:shadow-2xl shadow-primary hover:transition-transform hover:scale-110" width="350" src="${animeAttributes.posterImage.medium}" alt="Cover image of ${animeAttributes.canonicalTitle}">
             <div class="flex flex-col gap-3">
-                <h2 class="font-bold text-2xl mt-4 sm:text-3xl sm:mt-0">Description</h2>
+                <h2 class="font-bold text-2xl mt-8 sm:text-3xl sm:mt-0">Description</h2>
                 <p>${animeAttributes.synopsis}</p>
+                <a 
+                href="/FindYourAnime/anime-listing/index.html" 
+                class="w-[120px] text-center bg-primary text-lg text-typeface px-5 py-3 rounded-2xl hover:bg-primary-900 hover:text-background">
+                Return</a>
             </div>
-            <div id="loading-indicator" class="hidden justify-center items-center py-8 min-w-[95dvw]">
-                <span class="loader"></span>
-            </div>
+            
         </section>
+        
     `
 }
 export default class AnimeDetail{
