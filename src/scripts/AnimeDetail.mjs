@@ -25,10 +25,19 @@ function animeCardDetailTemplate(animeItem) {
             <div class="flex flex-col gap-3">
                 <h2 class="font-bold text-2xl mt-8 sm:text-3xl sm:mt-0">Description</h2>
                 <p>${animeAttributes.synopsis}</p>
-                <a 
-                href="/FindYourAnime/anime-listing/index.html" 
-                class="w-[120px] text-center bg-primary text-lg text-typeface px-5 py-3 rounded-2xl hover:bg-primary-900 hover:text-background">
-                Return</a>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button
+                    id="add-favorite"
+                    class="cursor-pointer w-fit text-center bg-primary text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-primary-900 hover:text-background">
+                    Add to Favorites
+                    </button>
+                    <a 
+                    href="/FindYourAnime/anime-listing/index.html"
+                    class="w-fit border-secondary border text-lg text-typeface px-5 py-5 rounded-2xl hover:bg-secondary">
+                    Discover More Anime</a>
+                </div>
+                
+                
             </div>
             
         </section>
@@ -61,5 +70,9 @@ export default class AnimeDetail{
             animeCardDetailTemplate(this.anime),
             this.outputHTML,
         )
+    }
+
+    getAnime(){
+        return this.anime;
     }
 }
